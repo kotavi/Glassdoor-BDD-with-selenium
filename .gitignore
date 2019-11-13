@@ -1,0 +1,6 @@
+configs/settings.json
+.idea/
+*/__pycache__/
+*/*/__pycache__/
+temp.py
+Scenarios.html

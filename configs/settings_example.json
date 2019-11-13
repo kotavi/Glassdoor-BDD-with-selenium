@@ -1,0 +1,8 @@
+{
+  "url": "https://www.glassdoor.com",
+  "browser": "Chrome",
+  "user": {
+    "username": "testuser",
+    "password": "testuser"
+  }
+}
