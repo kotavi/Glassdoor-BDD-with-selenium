@@ -12,9 +12,3 @@ from features.pages.top_navigation_header_page import TopNavigationHeaderPage
 def step_impl(context, menu_name):
     page = TopNavigationHeaderPage(context)
     page.click_menu(menu_name)
-
-# @step('Page with title "{title}" will be opened')
-# def step_impl(context, title):
-#     page = TopNavigationHeaderPage(context)
-#     assert_equal(title, page.title())
-

@@ -14,6 +14,8 @@ def before_scenario(context, scenario):
         context.browser = webdriver.Firefox()
     elif str(settings['browser']).lower() == "chrome":
         context.browser = webdriver.Chrome()
+    elif str(settings['browser']).lower() == "safari":
+        context.browser = webdriver.Safari()
     else:
         context.browser = webdriver.Firefox()
     context.browser.set_page_load_timeout(10)

@@ -6,8 +6,3 @@ from configs.config import settings
 from features.pages.signup_page import SignupPage
 
 from features.pages.top_navigation_header_page import TopNavigationHeaderPage
-
-
-@step('Sleep')
-def step_impl(context):
-    time.sleep(130)
