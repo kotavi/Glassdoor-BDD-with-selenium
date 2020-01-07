@@ -11,7 +11,7 @@
 ### To execute tests
 
 `
-behave features/loginToJenkins.feature
+behave features/findJobs_positive.feature
 `
 
 `

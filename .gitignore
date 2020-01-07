@@ -5,3 +5,4 @@ configs/settings.json
 temp.py
 Scenarios.html
 geckodriver.log
+failed_scenarios_screenshots/
