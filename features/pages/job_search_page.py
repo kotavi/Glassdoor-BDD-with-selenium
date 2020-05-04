@@ -33,6 +33,10 @@ class JobSearchPage(BasePage):
             "job_description": (By.XPATH, "//div[@id='JobDescriptionContainer']"),
             # TODO: fix, as it returns 31 objects
             "heart": (By.XPATH, "//i[@class='heart']"),
+            "job_not_found_message": (By.XPATH, "//div[@class='noResults padVert']/div/div/h4")
+            # "job_not_found_message": (By.XPATH, "//*[@id=\"MainCol\"]/div[1]/div[2]/div/div/h4/text()")
+
+            # MainCol > div:nth-child(1) > div.noResults.padVert > div > div > h4
         }
 
         def __init__(self, context):

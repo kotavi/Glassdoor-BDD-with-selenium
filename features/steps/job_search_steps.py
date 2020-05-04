@@ -1,5 +1,5 @@
 from behave import step
-from nose.tools import assert_true
+from nose.tools import assert_true, assert_in
 
 from features.pages.job_search_page import JobSearchPage
 
@@ -27,6 +27,13 @@ def step_impl(context):
     assert_true(page.find_element(*page.locator_dictionary['results']).is_displayed())
 
 
+@step('Job was not found')
+def step_impl(context):
+    page = JobSearchPage(context).JobResults(context)
+    element = page.find_element(*page.locator_dictionary['job_not_found_message'])
+    assert_in("does not match any jobs", element.text)
+
+
 @step('User clicks on the first job in the list')
 def step_impl(context):
     page = JobSearchPage(context).JobResults(context)
@@ -43,6 +50,3 @@ def step_impl(context):
 def step_impl(context):
     page = JobSearchPage(context).JobResults(context)
     assert_true(page.first_job_name.text in page.chosen_job_employer.text)
-
-
-
