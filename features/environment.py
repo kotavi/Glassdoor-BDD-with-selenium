@@ -3,11 +3,14 @@ from selenium import webdriver
 from datetime import datetime
 from configs.config import settings
 
+
 def before_all(context):
     print("\n[%s] Started feature test run..." % datetime.now())
 
+
 def before_feature(context, feature):
     pass
+
 
 def before_scenario(context, scenario):
     if str(settings['browser']).lower() == "firefox":
@@ -22,6 +25,7 @@ def before_scenario(context, scenario):
     context.browser.implicitly_wait(10)
     context.browser.maximize_window()
 
+
 def after_scenario(context, scenario):
     print("\nFinished scenario '%s'" % scenario.name)
     if scenario.status == "failed":
@@ -31,8 +35,10 @@ def after_scenario(context, scenario):
         context.browser.save_screenshot(scenario.name + "_failed.png")
     context.browser.quit()
 
+
 def after_feature(context, feature):
     pass
+
 
 def after_all(context):
     print("\n[%s] Finished feature test run..." % datetime.now())

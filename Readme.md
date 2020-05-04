@@ -4,7 +4,7 @@
 `python3 -m pip install behave`
 
 ### Notes
-- After *.feature file is created PyCharm will sugest to install Gherkin plugin
+- After *.feature file is created PyCharm will suggest to install Gherkin plugin;
 - You'll get error 'ConfigError: No steps directory in <your_path>/features' if 'steps' folder was not created
 - 
 

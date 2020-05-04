@@ -28,13 +28,13 @@ class SignupPage(BasePage):
                 base_url=settings['url'])
 
         locator_dictionary = {
-            "signin_modal":(By.CLASS_NAME, 'minh-modal'),
+            "signin_modal": (By.CLASS_NAME, 'minh-modal'),
             "signin_button": (By.XPATH, "//button[@type='submit' and text()='Sign In']"),
-            "address" : (By.NAME, 'username'),
-            "password" : (By.NAME, 'password')
+            "address": (By.NAME, 'username'),
+            "password": (By.NAME, 'password')
         }
 
-        def login(self, username=settings['user']['username'], passwd=settings['user']['password']):
+        def login(self, username=settings['user']['username'], password=settings['user']['password']):
             self.find_element(*self.locator_dictionary['email']).send_keys(username)
-            self.find_element(*self.locator_dictionary['password']).send_keys(passwd)
+            self.find_element(*self.locator_dictionary['password']).send_keys(password)
             self.find_element(*self.locator_dictionary['signin_button']).click()

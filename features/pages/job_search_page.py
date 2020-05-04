@@ -19,7 +19,6 @@ class JobSearchPage(BasePage):
             context.browser,
             base_url=settings['url'])
 
-
     class JobResults(BasePage):
 
         locator_dictionary = {
@@ -27,11 +26,13 @@ class JobSearchPage(BasePage):
             "jobs_column": (By.XPATH, "//ul[@class='jlGrid hover']"),
             "first_job": (By.XPATH, "//div//ul[@class='jlGrid hover']//li[1]"),
             "first_job_name": (By.XPATH, "//li[1]//div[@class='jobInfoItem jobEmpolyerName']"),
-            "selected_job": (By.XPATH, "//div[@class='jobInfoItem jobEmpolyerName']"), # TODO: fix, as it returns 31 objects
+            # TODO: fix, as it returns 31 objects
+            "selected_job": (By.XPATH, "//div[@class='jobInfoItem jobEmpolyerName']"),
             "chosen_job": (By.XPATH, "//div[@id='JDCol']"),
             "chosen_job_employer": (By.XPATH, "//div[@class='employerName']"),
             "job_description": (By.XPATH, "//div[@id='JobDescriptionContainer']"),
-            "heart": (By.XPATH, "//i[@class='heart']"), # TODO: fix, as it returns 31 objects
+            # TODO: fix, as it returns 31 objects
+            "heart": (By.XPATH, "//i[@class='heart']"),
         }
 
         def __init__(self, context):

@@ -1,33 +1,33 @@
 from behave import step
-import time
 from nose.tools import assert_equal, assert_true
-from selenium.webdriver.common.by import By
 from configs.config import settings
 from features.pages.signup_page import SignupPage
-from selenium.common.exceptions import NoSuchElementException
+
 
 @step('User navigates to signup page')
 def step_impl(context):
     page = SignupPage(context)
     page.visit(settings['url'])
-    assert_equal(page.title() , SignupPage(context).TITLE)
+    assert_equal(page.title(), SignupPage(context).TITLE)
+
 
 @step('User logs in with valid credentials')
 def step_impl(context):
-    signupPage = SignupPage(context)
-    signupPage.signin_button.click()
+    signup_page = SignupPage(context)
+    signup_page.signin_button.click()
     page = SignupPage(context).SignInWindow(context)
-
     assert_true(page.find_element(*page.locator_dictionary['signin_modal']).is_displayed())
     page.address.send_keys(settings['user']['username'])
     page.password.send_keys(settings['user']['password'])
     page.signin_button.click()
 
+
 @step('User verifies that it was a successful login by logging out')
 def step_impl(context):
-    signupPage = SignupPage(context)
-    signupPage.signedin_button.click()
-    signupPage.signout_button.click()
+    signup_page = SignupPage(context)
+    signup_page.signedin_button.click()
+    signup_page.signout_button.click()
+
 
 # @step('Page should have an expected title "{title}"')
 # def step_impl(context, title):
