@@ -1,5 +1,7 @@
+import time
+
 from behave import step
-from nose.tools import assert_true, assert_in
+from nose.tools import assert_true, assert_in, assert_not_in
 
 from features.pages.job_search_page import JobSearchPage
 
@@ -13,6 +15,11 @@ def step_impl(context, job_title, location):
     page.job_location.clear()
     page.job_location.send_keys(location)
 
+    popup = page.find_element(*page.locator_dictionary['add_your_resume']).is_displayed()
+    if popup:
+        # button = page.find_element(*page.locator_dictionary['finish_profile_button'])
+        close_button = page.find_element(*page.locator_dictionary['close_button'])
+        close_button.click()
     # time.sleep(1)
     # element = WebDriverWait(page.browser, page.timeout).until(
     #     EC.presence_of_element_located(page.locator_dictionary['search_button'])
@@ -32,6 +39,13 @@ def step_impl(context):
     page = JobSearchPage(context).JobResults(context)
     element = page.find_element(*page.locator_dictionary['job_not_found_message'])
     assert_in("does not match any jobs", element.text)
+
+
+@step('The location name {name} is changed')
+def step_impl(context, name):
+    page = JobSearchPage(context)
+    element = page.find_element(*page.locator_dictionary['job_location'])
+    assert_not_in(name, element.text)
 
 
 @step('User clicks on the first job in the list')

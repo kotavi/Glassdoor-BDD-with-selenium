@@ -7,10 +7,14 @@ from configs.config import settings
 class JobSearchPage(BasePage):
     locator_dictionary = {
         "job_title": (By.XPATH, "//input[@name='sc.keyword']"),
-        "suggestion_menu": (By.XPATH, "//div[@class='autocomplete-suggestions ']//div[@data-val='Quality Assurance Engineer']"),
+        "suggestion_menu": (By.XPATH, "//div[@class='autocomplete-suggestions ']"
+                                      "//div[@data-val='Quality Assurance Engineer']"),
         "job_location": (By.XPATH, "//input[@id='sc.location']"),
         "choice_list": (By.XPATH, "//ul[@class='context-choice-list']"),
         "search_button": (By.ID, "HeroSearchButton"),
+        "add_your_resume": (By.CSS_SELECTOR, ".ProfileTooltipStyle__profileTooltip"),
+        "close_button": (By.CSS_SELECTOR, ".SVGInline-svg"),
+        "finish_profile_button": (By.XPATH, "//button[contains(text(), 'Finish Profile')]"),
     }
 
     def __init__(self, context):
@@ -33,10 +37,7 @@ class JobSearchPage(BasePage):
             "job_description": (By.XPATH, "//div[@id='JobDescriptionContainer']"),
             # TODO: fix, as it returns 31 objects
             "heart": (By.XPATH, "//i[@class='heart']"),
-            "job_not_found_message": (By.XPATH, "//div[@class='noResults padVert']/div/div/h4")
-            # "job_not_found_message": (By.XPATH, "//*[@id=\"MainCol\"]/div[1]/div[2]/div/div/h4/text()")
-
-            # MainCol > div:nth-child(1) > div.noResults.padVert > div > div > h4
+            "job_not_found_message": (By.XPATH, "//div[@class='noResults padVert']/div/div/h4"),
         }
 
         def __init__(self, context):
